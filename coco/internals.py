@@ -697,7 +697,8 @@ class Manager(object):
 		pass
 
 	def _r_mods(self, group, args):
-		group.mods = args[1:]
+		group.mods = [f.split(",")[0] for f in args[1:]]
+
 	#
 	##########
 	
