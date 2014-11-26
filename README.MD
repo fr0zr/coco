@@ -15,7 +15,7 @@ OH yeah.... its sorta stable-ish(pinch of salt pls)
 
 How do I use it?
 ----------------
-	um example.py ;)
+	Install the requests module at http://docs.python-requests.org/en/latest/user/install/ then use the example.py ;)
 
 License
 -------
