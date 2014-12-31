@@ -649,13 +649,17 @@ class Manager(object):
 	def _r_delete(self, group, args):
 		try:
 			try:
-				msg = self.getMessage(args[1])
+				msg = self.getMessage(args[1]) # I don't know why "_" makes a difference
+				print("User %s has been deleted for saying: \"%s\"" % (msg._name.capitalize(), msg._post))
 			except:
 				msg = group.Last(args[1], mode = "pid")
-			ret = "%s %s %s" % (msg.group, msg.name, msg.post)
-			print(ret)
-		except:
-			print("Msg with unknown id deleted")
+				if msg: # Can't find out why Last returns False sometimes cause it CAN find the PID
+					ret = "%s" % (msg._post)
+					print(ret)
+				else:
+					print("Couldn't find PID.") # "couldn't find"
+		except Exception as e:
+			print(str(e))
 		
 	def _r_b(self, group, args):
 		args = args[1:]
